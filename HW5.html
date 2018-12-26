@@ -390,7 +390,7 @@ class MD2Wrapper {
 
 	function animate() {
 		
-		posss();
+		
 		requestAnimationFrame( animate );
 		render();
 
@@ -403,6 +403,7 @@ class MD2Wrapper {
 		var delta = clock.getDelta();
 		if (astroWrap.md2) {
 			astroWrap.md2.update (delta)
+			posss();
 		}
 		renderer.render( scene, camera );
 
