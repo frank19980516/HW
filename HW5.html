@@ -140,6 +140,70 @@ class MD2Wrapper {
 		// scene.add( new THREE.CameraHelper( light.shadow.camera ) );
 
 
+
+
+		/*     LAADER     */
+		var ll = 500, lw = 100, lh = 50;
+		var preposy = lh / 2;
+		var preposz = lw / 2 + 200;
+		var ladder, plane;
+		ladder = new THREE.Mesh(new THREE.BoxGeometry(ll, lh, lw), new THREE.MeshPhongMaterial({
+			color: 0xFF0000,
+			side: THREE.DoubleSide
+		}));
+		scene.add(ladder);
+		ladder.position.y += preposy + lh * 0;
+		ladder.position.z = preposz + lw * 1;
+		
+		ladder = new THREE.Mesh(new THREE.BoxGeometry(ll, lh, lw), new THREE.MeshPhongMaterial({
+			color: 0xFF0000,
+			side: THREE.DoubleSide
+		}));
+		scene.add(ladder);
+		ladder.position.y += preposy + lh * 1;
+		ladder.position.z = preposz + lw * 2;
+		
+		ladder = new THREE.Mesh(new THREE.BoxGeometry(ll, lh, lw), new THREE.MeshPhongMaterial({
+			color: 0xFF0000,
+			side: THREE.DoubleSide
+		}));
+		scene.add(ladder);
+		ladder.position.y += preposy + lh * 2;
+		ladder.position.z = preposz + lw * 3;
+		
+		ladder = new THREE.Mesh(new THREE.BoxGeometry(ll, lh, lw), new THREE.MeshPhongMaterial({
+			color: 0xFF0000,
+			side: THREE.DoubleSide
+		}));
+		scene.add(ladder);
+		ladder.position.y += preposy + lh * 3;
+		ladder.position.z = preposz + lw * 4;
+		
+		ladder = new THREE.Mesh(new THREE.BoxGeometry(ll, lh, lw), new THREE.MeshPhongMaterial({
+			color: 0xFF0000,
+			side: THREE.DoubleSide
+		}));
+		scene.add(ladder);
+		ladder.position.y += preposy + lh * 4;
+		ladder.position.z = preposz + lw * 5;
+		
+		plane =  new THREE.Mesh(new THREE.BoxGeometry(ll, lh, 2000), new THREE.MeshPhongMaterial({
+			color: 0xFF0000,
+			side: THREE.DoubleSide
+		}));
+		scene.add(plane);
+		plane.position.y = preposy + lh * 4;
+		plane.position.z = preposz + lw * 5 + 1000;
+		
+		treasure = new THREE.Mesh(new THREE.BoxGeometry(50, 50, 50), new THREE.MeshPhongMaterial({
+			color: 0xFFFF77,
+			side: THREE.DoubleSide
+		}));
+		scene.add(treasure);
+		treasure.position.y = preposy + lh * 8;
+		treasure.position.z = preposz + lw * 5 + 1000;
+
+
 		//  GROUND
 
 		//var gt = new THREE.TextureLoader().load( "grasslight-big.jpg" );
@@ -326,6 +390,27 @@ class MD2Wrapper {
 		}
 		renderer.render( scene, camera );
 
+	}
+	function posss(){
+		if(whamWrap.md2.root.position.x <=250 && whamWrap.md2.root.position.x >= -250 && whamWrap.md2.root.position.z < 850 + 2000){
+			if(whamWrap.md2.root.position.z < 850 && whamWrap.md2.root.position.z >= 750 && whamWrap.md2.root.position.y >= defaultY + 200 && whamWrap.md2.root.position.y < defaultY + 250)
+				whamWrap.md2.root.position.y += 10;
+			if(whamWrap.md2.root.position.z < 750 && whamWrap.md2.root.position.z >= 650 && whamWrap.md2.root.position.y >= defaultY + 150 && whamWrap.md2.root.position.y < defaultY + 200)
+				whamWrap.md2.root.position.y += 10;
+			if(whamWrap.md2.root.position.z < 650 && whamWrap.md2.root.position.z >= 550 && whamWrap.md2.root.position.y >= defaultY + 100 && whamWrap.md2.root.position.y < defaultY + 150)
+				whamWrap.md2.root.position.y += 10;
+			if(whamWrap.md2.root.position.z < 550 && whamWrap.md2.root.position.z >= 450 && whamWrap.md2.root.position.y >= defaultY + 50 && whamWrap.md2.root.position.y < defaultY + 100)
+				whamWrap.md2.root.position.y += 10;
+			if(whamWrap.md2.root.position.z < 450 && whamWrap.md2.root.position.z >= 350 && whamWrap.md2.root.position.y >= defaultY && whamWrap.md2.root.position.y < defaultY + 50){
+				whamWrap.md2.root.position.y += 10;
+			}
+			if(whamWrap.md2.root.position.y == defaultY && whamWrap.md2.root.position.z >= 350 && whamWrap.md2.root.position.z < 650)
+				whamWrap.md2.root.position.z += 10;
+		}
+		else{
+			if(whamWrap.md2.root.position.y > defaultY)
+				whamWrap.md2.root.position.y -= 10;
+		}
 	}
 
 </script>
