@@ -92,11 +92,23 @@ class MD2Wrapper {
 
 	var astroWrap;
 	var light;
-	
+	var defaultY;
 	var box3, box3Helper;
 	
 	var cameraControls;
 	var clock = new THREE.Clock();
+	var isPaused = false;
+
+	$('#play').click ( function() {
+		isPaused = !isPaused;
+		if (isPaused) { 
+			$('#play').text ('Play')
+			soundTrack.pause()
+		} else {
+			$('#play').text ('Pause')
+			soundTrack.play()
+		}
+	});
 
 	init();
 	animate();
@@ -377,7 +389,8 @@ class MD2Wrapper {
 	//
 
 	function animate() {
-
+		
+		posss();
 		requestAnimationFrame( animate );
 		render();
 
