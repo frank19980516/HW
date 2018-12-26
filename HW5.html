@@ -92,7 +92,7 @@ class MD2Wrapper {
 
 	var astroWrap;
 	var light;
-	var defaultY;
+	var defaultY = 0;
 	var box3, box3Helper;
 	
 	var cameraControls;
@@ -404,6 +404,7 @@ class MD2Wrapper {
 		var delta = clock.getDelta();
 		if (astroWrap.md2) {
 			astroWrap.md2.update (delta)
+			console.log(astroWrap.md2.root.position.y)
 			posss();
 		}
 		renderer.render( scene, camera );
