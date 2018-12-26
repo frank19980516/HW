@@ -35,11 +35,14 @@ F
 	<a href="http://threejs.org" target="_blank" rel="noopener">three.js</a> - MD2 Loader -
 	<br />
 	use arrows to control characters, mouse for camera
-	
+	<br>pls press play to play music<h5>
+	<button id="play" style="width:20%">Play</button>
 	<br>
 	<p id='msg'></p>
 </div>
-
+<audio id="soundtrack" autoplay loop style="display:none">
+<source src="NCSmusic/Fareoh - Cloud Ten.mp3" type='audio/mp3'>
+</audio>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/94/three.min.js"></script>
 <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
