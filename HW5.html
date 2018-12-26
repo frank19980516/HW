@@ -1,4 +1,4 @@
-
+F
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,7 +87,7 @@ class MD2Wrapper {
 	var container, stats;
 	var camera, scene, renderer;
 
-	var yoshiWrap;
+	var astroWrap;
 	var light;
 	
 	var box3, box3Helper;
@@ -187,14 +187,14 @@ class MD2Wrapper {
 		cameraControls.update();
 
 		/////////////////////////////////////////////////////////////////////////////
-		// CHARACTER: yoshi
+		// CHARACTER: astro
 
-		let configYoshi = {
+		let configastro = {
 
-			baseUrl: "md2models/yoshi/",
+			baseUrl: "astro/",
 
-			body: "tris.md2",
-			skins: [ "yoshi.png" ],
+			body: "astro.md2",
+			skins: [ "astro.png" ],
 			weapons:  [  ],
 
 			animations: {
@@ -220,12 +220,12 @@ class MD2Wrapper {
 
 		};
 
-		yoshiWrap = new MD2Wrapper (configYoshi, controls, new THREE.Vector3(0,0,0), 3 );
+		astroWrap = new MD2Wrapper (configastro, controls, new THREE.Vector3(0,0,0), 3 );
 		var gyro = new THREE.Gyroscope();  
 		gyro.add( camera );
 	
 		gyro.add( light, light.target );
-		yoshiWrap.md2.root.add( gyro );		
+		astroWrap.md2.root.add( gyro );		
 		
 		box3 = new THREE.Box3();
 		box3Helper = new THREE.Box3Helper(box3)
@@ -250,7 +250,7 @@ class MD2Wrapper {
 	function onKeyDown ( event ) {
 
 		event.stopPropagation();
-		let controlsY = yoshiWrap.md2.controls;
+		let controlsY = astroWrap.md2.controls;
 
 		switch( event.keyCode ) {
 
@@ -280,7 +280,7 @@ class MD2Wrapper {
 	function onKeyUp ( event ) {
 
 		event.stopPropagation();
-		let controlsY = yoshiWrap.md2.controls;
+		let controlsY = astroWrap.md2.controls;
 		
 		switch( event.keyCode ) {
 
@@ -318,11 +318,11 @@ class MD2Wrapper {
 
 	function render() {
 	
-		box3.setFromObject (yoshiWrap.md2.root)
+		box3.setFromObject (astroWrap.md2.root)
 		
 		var delta = clock.getDelta();
-		if (yoshiWrap.md2) {
-			yoshiWrap.md2.update (delta)
+		if (astroWrap.md2) {
+			astroWrap.md2.update (delta)
 		}
 		renderer.render( scene, camera );
 
